@@ -1,0 +1,45 @@
+@import "compass";
+
+$gutter:    percentage(20px/940px); // 20px at 960px wide container, accounting for a 1/2 gutter width padding on the left and right of the container
+$onecol:                6.3829787%; // 60px at 960px wide container
+$columnsBreakPoint:          600px; // set this to the minimum width you want the columns to take effect at
+$containerMaxWidth:          1040px; // set this to the maximum width you want .container to have
+
+// MEDIA QUERY MIXINS
+@mixin mq($query) {
+  @media screen and (min-width: $query) {
+    @content;
+  }
+  html.nr {
+    @content;
+  }
+}
+@mixin columns($count:1) {
+  width: ($onecol * $count) + ($gutter * ($count - 1));
+}
+@mixin font-size($sizeValue: 16) {
+  font-size: $sizeValue + px;
+  font-size: ($sizeValue / 10) + rem;
+}
+@mixin column-count($value:1) {
+   -webkit-column-count: $value;
+   -moz-column-count:    $value;
+   column-count:         $value;
+}
+@mixin column-gap($value:0px) {
+   -webkit-column-gap:   $value;
+   -moz-column-gap:      $value;
+   column-gap:           $value;
+}
+@mixin image-2x($image, $image_2x) {
+  background-image: url($image);
+
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image_2x);
+  }
+}
