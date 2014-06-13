@@ -1,50 +1,139 @@
 ---
 title: Ali And Brian
 ---
+<nav>
+  <span data-src="header.main">Home</span>
+  <span data-src="#who">Who</span>
+  <span data-src="#when">When</span>
+  <span data-src="#location">Where</span>
+  <span data-src="#dress">Dress</span>
+  <span data-src="#theme">Theme</span>
+  <span data-src="#disclaimer">Disclaim</span>
+  <span data-src="#map">Directions</span>
+  <span data-src="#images">Pics</span>
+  <span data-src="footer.main">RSVP</span>
+</nav>
 
-<h1>We're getting married!</h1>
 
-<div id="slideshow">
-  <div style="background-image: url(/images/ring.jpg);">
-    ring
-  </div>
-  <div style="background-image: url(/images/hand.jpg);">
-    hand
-  </div>
-  <div style="background-image: url(/images/IMG_2475.jpg);">
-    IMG_2475
-  </div>
-  <div style="background-image: url(/images/IMG_5018.jpg);">
-    IMG_5018
-  </div>
-  <div style="background-image: url(/images/IMG_5967.JPG);">
-    IMG_5967
-  </div>
-  <div style="background-image: url(/images/IMG_0660.JPG);">
-    IMG_0660
-  </div>
-  <!-- <div style="background-image: url(/images/golden_gate.jpg);">
-    golden_gate
-  </div>
-  <div style="background-image: url(/images/IMG_0217.JPG);">
-    IMG_0217
-  </div>
-  <div style="background-image: url(/images/IMG_0854.JPG);">
-    IMG_0854
-  </div>
-  <div style="background-image: url(/images/IMG_0857.JPG);">
-    IMG_0857
-  </div>
-  <div style="background-image: url(/images/IMG_1622.JPG);">
-    IMG_1622
-  </div>
-  <div style="background-image: url(/images/santa_cruz.jpg);">
-    santa_cruz
-  </div>
-  <div style="background-image: url(/images/under_the_stars.jpg);">
-    under_the_stars
-  </div>
-  <div style="background-image: url(/images/universal.jpg);">
-    universal
-  </div> -->
+<header class="main">
+  <h1>It's a</h1>
+</header>
+
+<div id="content">
+
+  <section id="who">
+    <article>
+      <header>
+        <h2>Who?</h2>
+      </header>
+      <div>
+        These two love birds
+      </div>
+    </article>
+  </section>
+
+  <section id="when">
+    <article>
+      <header>
+        <h2>When?</h2>
+      </header>
+      <div>
+        <span>6:00pm</span>
+        <span>June 20th, 2015</span>
+      </div>
+      <div id="clock">
+        <div id="minute"></div>
+        <div id="hour"></div>
+        <div id="center"></div>
+        <span class="twelve">12</span>
+        <span class="one">1</span>
+        <span class="two">2</span>
+        <span class="three">3</span>
+        <span class="four">4</span>
+        <span class="five">5</span>
+        <span class="six">6</span>
+      </div>
+    </article>
+  </section>
+
+  <section id="location">
+    <article>
+      <header>
+        <h2>Where?</h2>
+      </header>
+      <div>
+        <span>Saratoga Springs Picnic & Campgrounds</span>
+        <span>22801 Big Basin Way</span>
+        <span>Saratoga, CA 95070</span>
+      </div>
+    </article>
+  </section>
+
+  <section id="dress">
+    <article>
+      <header>
+        <h2>Dress Code</h2>
+      </header>
+      <div>
+        <span>Nice Jeans</span>
+        <span>Nice Shirt.</span>
+        <span>Simple Enough.</span>
+      </div>
+    </article>
+  </section>
+
+  <section id="theme">
+    <article>
+      <header>
+        <h2>Theme</h2>
+      </header>
+      <div>
+        Outdoor Picnic/Barbecue
+      </div>
+    </article>
+  </section>
+
+  <section id="disclaimer"  data-type="background" data-speed="10">
+    <article>
+      <header>
+        <h2>We want you to come.</h2>
+      </header>
+      <div>
+        But, if you can't, we understand.
+      </div>
+    </article>
+  </section>
+
+  <section id="map">
+    <article>
+      <header>
+        <h2>Need directions? No problem!</h2>
+      </header>
+      <form>
+        <input id="address" type="text" placeholder="Your Address"/>
+        <button id="address-button">GO</button>
+      </form>
+    </article>
+  </section>
+
+  <section id="images">
+    <article class="container">
+      <img src="/images/ring.jpg">
+      <img src="/images/hand.jpg">
+      <img src="/images/IMG_2475.jpg">
+      <img src="/images/IMG_5018.jpg">
+      <img src="/images/IMG_5967.JPG">
+      <img src="/images/IMG_0660.JPG">
+      <img src="/images/under_the_stars.jpg">
+      <img src="/images/santa_cruz.jpg">
+      <img src="/images/universal.jpg">
+    </article>
+  </section>
+
 </div>
+
+<footer class="main">
+  <div class="rsvp">The invites you will receive in the mail will give you instruction on how to RSVP.</div>
+
+  <div class="copyright">&copy; 2014 - Brian Anders</div>
+</footer>

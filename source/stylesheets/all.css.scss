@@ -4,70 +4,404 @@
 
 @import "mixins";
 
+$black: #555;
+$white: #F8F8F8;
+
+$blue: #72FFF4;
+$green: #68E894;
+$main: #A5FF7F;
+$yellow: #E8E768;
+$creme: #FFEEAF;
+
+$harder_blue: #1BFFE1;
+$harder_green: #19E854;
+$harder_main: #77FF28;
+$harder_yellow: #E8E319;
+$harder_creme: #FFD858;
+
+nav {
+  position: fixed;
+  top: -30px;
+  left: 0;
+  right: 0;
+  height: 40px;
+  z-index: 30;
+  @include transition(line-height .5s ease, top .5s ease);
+  cursor: pointer;
+
+  span {
+    width: 10%;
+    line-height: 40px;
+    display: block;
+    float: left;
+    text-align: center;
+    @include font-size(18);
+
+    &:hover {
+      line-height: 45px;
+    }
+    &:nth-child(1) {
+      background-color: $blue;
+    }
+    &:nth-child(2) {
+      background-color: $green;
+    }
+    &:nth-child(3) {
+      background-color: $main;
+    }
+    &:nth-child(4) {
+      background-color: $yellow;
+    }
+    &:nth-child(5) {
+      background-color: $creme;
+    }
+    &:nth-child(6) {
+      background-color: $harder_blue;
+    }
+    &:nth-child(7) {
+      background-color: $harder_green;
+    }
+    &:nth-child(8) {
+      background-color: $harder_main;
+    }
+    &:nth-child(9) {
+      background-color: $harder_yellow;
+    }
+    &:nth-child(10) {
+      background-color: $harder_creme;
+    }
+  }
+
+  &:hover {
+    top: 0px;
+  }
+}
+
+
 html {
   font-size: 62.5%;
 
   ::selection {
-    background: lightblue; /* Safari */
+    background: $creme; /* Safari */
     @include text-shadow(none);
   }
   ::-moz-selection {
-    background: lightblue; /* Firefox */
+    background: $creme; /* Firefox */
     @include text-shadow(none);
   }
 }
 
-body {
-  background: #d4d4d4;
-  text-align: center;
-  font-family: sans-serif;
+* {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  outline: none;
+  font-weight: 100;
+  color: $black;
 }
 
 h1 {
   font-weight: 100;
   @include font-size(32);
-  @include text-shadow(0 0 10px white);
-  position: absolute;
-  left: 0;
-  right: 0;
   z-index: 20;
 }
 
-#slideshow {
-  margin: 0;
-  position: absolute;
+#content {
+  background: black;
   width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  margin-bottom: 300px;
 
-  > div {
-    position: absolute;
-    width: 100%;
+
+  img {
     height: 100%;
-    top: 0;
+    float: left;
+  }
+}
+section {
+  overflow: hidden;
+  border-bottom: 30px;
+  position: relative;
+  min-height: 600px;
+  @include font-size(30);
+
+  & > article {
+    margin: auto;
+    width: 1040px;
+    position: absolute;
     left: 0;
     right: 0;
-    bottom: 0;
-    background-position: center;
-    background-size: contain;
+    height: 600px;
+    text-align: center;
+  }
+
+  header {
+    line-height: 200px;
+    font-weight: 100;
+  }
+
+  &#location, &#when {
+    span {
+      display: block;
+      line-height: 2;
+    }
+  }
+
+  &#when.hover {
+    #minute {
+      @include transform(rotate(2160deg));
+      // @include transform(rotate(90deg));
+    }
+    #hour {
+      @include transform(rotate(180deg));
+    }
+  }
+
+  &#map {
+    background: $main;
+    font-weight: 100;
+    text-align: center;
+    background-image: url(/images/map.png);
+    background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    header {
+      max-width: 720px;
+      margin: 70px auto;
+      line-height: 140px;
+      text-align: center;
+      background-color: $white;
+      background-color: rgba(249,249,249,.9);
+      border-radius: 5px;
+    }
+
+    form {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      line-height: 600px;
+    }
+  }
+
+  &#theme {
+    background-image: url(/images/Green_Field.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+
+  &#disclaimer {
+    background: url(/images/congruent_pentagon.png) 50% 0 repeat fixed;
+
+    article > div {
+      height: 300px;
+      vertical-align: center;
+    }
+  }
+
+  &#images {
+    width: 100%;
+    overflow-x: scroll;
+    background: $yellow;
+
+    .container {
+      width: 5000px;
+      height: 100%;
+      padding-left: 30%;
+      padding-right: 30%;
+    }
+  }
+
+  &:nth-child(1) {
+    background-color: $blue;
+  }
+  &:nth-child(2) {
+    background-color: $green;
+  }
+  &:nth-child(3) {
+    background-color: $main;
+  }
+  &:nth-child(4) {
+    background-color: $yellow;
+  }
+  &:nth-child(5) {
+    background-color: $creme;
+  }
+  &:nth-child(6) {
+    background-color: $harder_blue;
+  }
+  &:nth-child(7) {
+    background-color: $harder_green;
+  }
+  &:nth-child(8) {
+    background-color: $harder_main;
+  }
+  &:nth-child(9) {
+    background-color: $harder_yellow;
+  }
+  &:nth-child(10) {
+    background-color: $harder_creme;
   }
 }
 
-#index {
-  min-height: 100%;
-  position: relative;
-  padding-bottom: 16px;
+
+#address, #address-button {
+  padding: 0;
+  line-height: 50px;
+  border: none;
+  @include font-size(30);
+  border-radius: 5px;
+  vertical-align: middle;
+  @include appearance(none);
+}
+#address {
+  padding-left: 10px;
+  width: 500px;
+}
+#address-button {
+  width: 200px;
+  background: rgb(192, 192, 192);
+  color: $white;
+
+  &:hover {
+    background: $harder_green;
+  }
 }
 
-footer {
+
+#clock {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+
+  #minute, #hour {
+    width: 6px;
+    background: $black;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    bottom: 50%;
+    margin-bottom: -3px;
+    border-radius: 6px;
+
+    @include transition(all 6s ease);
+  }
+  #minute {
+    height: 200px;
+    @include transform-origin(center, 197px);
+  }
+  #hour {
+    height: 150px;
+    @include transform-origin(center, 147px);
+  }
+  #center {
+    width: 8px;
+    background: $black;
+    position: absolute;
+    left: 50%;
+    margin-left: -4px;
+    height: 8px;
+    bottom: 50%;
+    margin-bottom: -4px;
+    border-radius: 8px;
+  }
+  .twelve, .one, .two, .three, .four, .five, .six {
+    background-color: $black;
+    color: $green;
+    opacity: 0;
+    @include transition(opacity .3s ease);
+    position: absolute;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 40px;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+  .twelve {
+    top: -50px;
+    left: 50%;
+    @include transform(translateX(-50%));
+  }
+  .one {
+    top: -18px;
+    right: 60px;
+  }
+  .two {
+    top: 65px;
+    right: -23px;
+  }
+  .three {
+    top: 50%;
+    right: -50px;
+    @include transform(translateY(-50%));
+  }
+  .four {
+    bottom: 65px;
+    right: -23px;
+  }
+  .five {
+    bottom: -18px;
+    right: 60px;
+  }
+  .six {
+    bottom: -50px;
+    left: 50%;
+    @include transform(translateX(-50%));
+  }
+}
+
+
+
+header.main {
+  width: 100%;
+  height: 500px;
+  background-image: url(/images/its_a_wedding.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 1200px auto;;
+  background-position: center top;
+  @include font-size(34);
+  text-align: center;
+  position: relative;
+
+  h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 60px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    margin-left: -270px;
+  }
+}
+
+footer.main {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 300px;
+  background: $creme;
+  z-index: -1;
+  text-align: center;
+}
+.rsvp {
+  font-size: 50px;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 70px;
+}
+.copyright {
+  @include font-size(14);
   position: absolute;
   bottom: 0;
-  z-index: 10;
-  @include font-size(14);
-  left: 4px;
-  @include text-shadow(0 0 10px white);
+  left: 0;
+  right: 0;
 }

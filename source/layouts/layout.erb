@@ -31,6 +31,7 @@
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= current_page.data.title || "Ali and Brian's Wedding" %></title>
 
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag "normalize", "all" %>
 
     <%= javascript_include_tag "modernizr" %>
@@ -51,10 +52,6 @@
   <body class="<%= page_classes %>">
 
     <%= yield %>
-
-    <footer class="foot">
-      &copy; 2014 - Brian Anders
-    </footer>
 
     <%= javascript_include_tag  "all" %>
   </body>

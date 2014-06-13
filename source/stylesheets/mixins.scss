@@ -43,3 +43,10 @@ $containerMaxWidth:          1040px; // set this to the maximum width you want .
     background-image: url($image_2x);
   }
 }
+@mixin transform-origin( $x, $y ) {
+  -moz-transform-origin: $x $y;
+  -webkit-transform-origin: $x $y;
+  -o-transform-origin: $x $y;
+  -ms-transform-origin: $x $y;
+  transform-origin: $x $y;
+}
