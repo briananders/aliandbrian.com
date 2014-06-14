@@ -26,7 +26,7 @@ nav {
   right: 0;
   height: 40px;
   z-index: 30;
-  @include transition(line-height .5s ease, top .5s ease);
+  @include transition(top .5s ease);
   cursor: pointer;
 
   span {
@@ -36,9 +36,10 @@ nav {
     float: left;
     text-align: center;
     @include font-size(18);
+    @include transition(line-height .2s ease);
 
     &:hover {
-      line-height: 45px;
+      line-height: 50px;
     }
     &:nth-child(1) {
       background-color: $blue;
@@ -82,20 +83,25 @@ html {
   font-size: 62.5%;
 
   ::selection {
-    background: $creme; /* Safari */
+    background-color: $creme; /* Safari */
     @include text-shadow(none);
   }
   ::-moz-selection {
-    background: $creme; /* Firefox */
+    background-color: $creme; /* Firefox */
     @include text-shadow(none);
   }
 }
 
-* {
+body {
   font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  outline: none;
   font-weight: 100;
   color: $black;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  outline: none;
 }
 
 h1 {
@@ -105,7 +111,6 @@ h1 {
 }
 
 #content {
-  background: black;
   width: 100%;
   margin-bottom: 300px;
 
@@ -124,12 +129,15 @@ section {
 
   & > article {
     margin: auto;
-    width: 1040px;
+    max-width: 1040px;
+    width: 100%;
     position: absolute;
     left: 0;
     right: 0;
     height: 600px;
     text-align: center;
+    padding: 0 10px;
+    @include box-sizing(border-box);
   }
 
   header {
@@ -137,31 +145,36 @@ section {
     font-weight: 100;
   }
 
-  &#location, &#when {
+  &#where, &#when {
     span {
       display: block;
       line-height: 2;
     }
   }
 
-  &#when.hover {
-    #minute {
-      @include transform(rotate(2160deg));
-      // @include transform(rotate(90deg));
+
+  &#when {
+    article {
+      text-align: left;
     }
-    #hour {
-      @include transform(rotate(180deg));
+
+    &.hover {
+      #minute {
+        @include transform(rotate(2160deg));
+        // @include transform(rotate(90deg));
+      }
+      #hour {
+        @include transform(rotate(180deg));
+      }
     }
   }
 
-  &#map {
-    background: $main;
+  &#directions {
     font-weight: 100;
     text-align: center;
-    background-image: url(/images/map.png);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: url(/images/map.png);
     background-attachment: fixed;
+    background-size: cover;
 
     header {
       max-width: 720px;
@@ -183,32 +196,47 @@ section {
   }
 
   &#theme {
-    background-image: url(/images/Green_Field.jpg);
-    background-position: center;
+    background: url(/images/Green_Field.jpg);
     background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
+    background-size: cover;
+  }
+
+  &#where {
+    background: url(/images/saratoga_springs.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+
+    header, div {
+      border-radius: 5px;
+      background-color: rgba(249,249,249,.8);
+      max-width: 600px;
+      margin: auto;
+    }
   }
 
   &#disclaimer {
-    background: url(/images/congruent_pentagon.png) 50% 0 repeat fixed;
+    background: url(/images/congruent_pentagon.png);
+    background-position: 50% 0;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    @include box-shadow(inset 0 0 50px -15px $black);
 
-    article > div {
-      height: 300px;
-      vertical-align: center;
+    header {
+      margin-top: 115px;
     }
   }
 
   &#images {
     width: 100%;
     overflow-x: scroll;
-    background: $yellow;
+    background-color: $yellow;
 
     .container {
       width: 5000px;
       height: 100%;
       padding-left: 30%;
       padding-right: 30%;
+      max-width: none;
     }
   }
 
@@ -260,11 +288,11 @@ section {
 }
 #address-button {
   width: 200px;
-  background: rgb(192, 192, 192);
+  background-color: rgb(192, 192, 192);
   color: $white;
 
   &:hover {
-    background: $harder_green;
+    background-color: $harder_green;
   }
 }
 
@@ -280,7 +308,7 @@ section {
 
   #minute, #hour {
     width: 6px;
-    background: $black;
+    background-color: $black;
     position: absolute;
     left: 50%;
     margin-left: -3px;
@@ -300,7 +328,7 @@ section {
   }
   #center {
     width: 8px;
-    background: $black;
+    background-color: $black;
     position: absolute;
     left: 50%;
     margin-left: -4px;
@@ -318,6 +346,7 @@ section {
     width: 40px;
     line-height: 40px;
     border-radius: 40px;
+    text-align: center;
 
     &.show {
       opacity: 1;
@@ -361,10 +390,10 @@ section {
 header.main {
   width: 100%;
   height: 500px;
-  background-image: url(/images/its_a_wedding.jpg);
+  background: url(/images/its_a_wedding.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: 1200px auto;;
+  background-size: 1200px auto;
   background-position: center top;
   @include font-size(34);
   text-align: center;
@@ -388,7 +417,7 @@ footer.main {
   right: 0;
   width: 100%;
   height: 300px;
-  background: $creme;
+  background-color: $creme;
   z-index: -1;
   text-align: center;
 }

@@ -28,16 +28,14 @@ if ( !Array.prototype.forEach ) {
   //Address submission
   (function($){
 
-    $("#address").bind("keypress", keyPressed);
-
-    var keyPressed = function(e) {
+    $("#address").bind("keypress", function(e) {
       var code = (e.keyCode ? e.keyCode : e.which);
       if (code == 13) { //Enter keycode
         e.preventDefault();
 
         submitAddress();
       }
-    };
+    });
 
     var submitAddress = function() {
       var address = $("#address").val().split(' ').join('+');
@@ -45,9 +43,7 @@ if ( !Array.prototype.forEach ) {
       window.open(url, '_blank');
     };
 
-    $('#address-button').click(function(){
-      submitAddress();
-    });
+    $('#address-button').click(submitAddress);
 
   })($);
 
