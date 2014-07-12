@@ -65,7 +65,7 @@ if ( !Array.prototype.forEach ) {
     });
   })($);
 
-  //Parallax
+  //
   (function($){
     var windowHeight = $(window).height();
 

@@ -5,19 +5,18 @@
 @import "mixins";
 
 $black: #555;
-$white: #F8F8F8;
+$white: rgb(254, 252, 241);
+$transparent_white: rgba(254, 252, 241, .8);
 
-$blue: #72FFF4;
-$green: #68E894;
-$main: #A5FF7F;
-$yellow: #E8E768;
-$creme: #FFEEAF;
 
-$harder_blue: #1BFFE1;
-$harder_green: #19E854;
-$harder_main: #77FF28;
-$harder_yellow: #E8E319;
-$harder_creme: #FFD858;
+$green: #758A48;
+$light-green: #C9D787;
+$light-grey: #C4C4C4;
+$dark-grey: #999999;
+
+
+$max_width: 1200px;
+
 
 nav {
   position: fixed;
@@ -42,34 +41,34 @@ nav {
       line-height: 50px;
     }
     &:nth-child(1) {
-      background-color: $blue;
+      background-color: $light-green;
     }
     &:nth-child(2) {
-      background-color: $green;
+      background-color: $dark-grey;
     }
     &:nth-child(3) {
-      background-color: $main;
+      background-color: $green;
     }
     &:nth-child(4) {
-      background-color: $yellow;
+      background-color: $light-grey;
     }
     &:nth-child(5) {
-      background-color: $creme;
+      background-color: $white;
     }
     &:nth-child(6) {
-      background-color: $harder_blue;
+      background-color: $light-green;
     }
     &:nth-child(7) {
-      background-color: $harder_green;
+      background-color: $dark-grey;
     }
     &:nth-child(8) {
-      background-color: $harder_main;
+      background-color: $green;
     }
     &:nth-child(9) {
-      background-color: $harder_yellow;
+      background-color: $light-grey;
     }
     &:nth-child(10) {
-      background-color: $harder_creme;
+      background-color: $white;
     }
   }
 
@@ -81,13 +80,14 @@ nav {
 
 html {
   font-size: 62.5%;
+  background: $white;
 
   ::selection {
-    background-color: $creme; /* Safari */
+    background-color: $white; /* Safari */
     @include text-shadow(none);
   }
   ::-moz-selection {
-    background-color: $creme; /* Firefox */
+    background-color: $white; /* Firefox */
     @include text-shadow(none);
   }
 }
@@ -109,17 +109,59 @@ h1 {
   @include font-size(32);
   z-index: 20;
 }
+h2 {
+  margin: 0;
+
+}
 
 #content {
   width: 100%;
+  max-width: $max_width;
+  margin: auto;
   margin-bottom: 300px;
-
 
   img {
     height: 100%;
     float: left;
   }
 }
+
+container {
+  overflow: hidden;
+  max-width: 720px;
+  margin: auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  @include transform(translateY(-50%));
+}
+
+article {
+  margin: auto;
+  max-width: 1040px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 600px;
+  text-align: center;
+  padding: 0 10px;
+  @include box-sizing(border-box);
+
+}
+
+.one-liner {
+  line-height: 150px;
+}
+.two-lines {
+  line-height: 75px;
+}
+.three-lines {
+  line-height: 50px;
+  padding: 15px 0;
+}
+
 section {
   overflow: hidden;
   border-bottom: 30px;
@@ -127,33 +169,26 @@ section {
   min-height: 600px;
   @include font-size(30);
 
-  & > article {
-    margin: auto;
-    max-width: 1040px;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 600px;
-    text-align: center;
-    padding: 0 10px;
-    @include box-sizing(border-box);
-  }
-
   header {
-    line-height: 200px;
+    line-height: 150px;
     font-weight: 100;
+    margin-bottom: 1em;
   }
 
   &#where, &#when {
     span {
       display: block;
-      line-height: 2;
     }
   }
 
 
   &#when {
+    background-image: url('/images/background/halftone.png');
+    background-position: 50% 0;
+    background-attachment: fixed;
+    background-repeat: repeat;
+    @include box-shadow(inset 0 0 50px -15px $black);
+
     article {
       text-align: left;
     }
@@ -161,117 +196,105 @@ section {
     &.hover {
       #minute {
         @include transform(rotate(2160deg));
-        // @include transform(rotate(90deg));
       }
       #hour {
         @include transform(rotate(180deg));
       }
     }
+
+    container {
+      overflow: visible;
+    }
   }
 
   &#directions {
-    font-weight: 100;
-    text-align: center;
-    background: url(/images/map.png);
-    background-attachment: fixed;
-    background-size: cover;
+    @include image-2x('/images/background/map.png', '/images/background/map_2x.png');
 
     header {
-      max-width: 720px;
-      margin: 70px auto;
-      line-height: 140px;
-      text-align: center;
       background-color: $white;
-      background-color: rgba(249,249,249,.9);
+      background-color: $transparent_white;
       border-radius: 5px;
     }
 
     form {
-      position: absolute;
-      top: 0;
-      bottom: 0;
       width: 100%;
-      line-height: 600px;
     }
   }
 
   &#theme {
-    background: url(/images/Green_Field.jpg);
-    background-attachment: fixed;
-    background-size: cover;
+    @include image-2x("/images/background/Green_Field.jpg", "/images/background/Green_Field_2x.jpg");
   }
 
   &#where {
-    background: url(/images/saratoga_springs.jpg);
-    background-attachment: fixed;
-    background-size: cover;
+    @include image-2x("/images/background/saratoga_springs.jpg", "/images/background/saratoga_springs_2x.jpg");
 
     header, div {
       border-radius: 5px;
-      background-color: rgba(249,249,249,.8);
-      max-width: 600px;
-      margin: auto;
+      background-color: $white;
+      background-color: $transparent-white;
     }
   }
 
   &#disclaimer {
-    background: url(/images/congruent_pentagon.png);
+    @include image-2x("/images/background/congruent_pentagon.png", "/images/background/congruent_pentagon_2x.png");
     background-position: 50% 0;
     background-attachment: fixed;
     background-repeat: repeat;
     @include box-shadow(inset 0 0 50px -15px $black);
-
-    header {
-      margin-top: 115px;
-    }
   }
 
   &#images {
     width: 100%;
     overflow-x: scroll;
-    background-color: $yellow;
+    background-color: $light-grey;
 
     .container {
       width: 5000px;
       height: 100%;
-      padding-left: 30%;
-      padding-right: 30%;
       max-width: none;
+      padding: 0;
     }
   }
 
   &:nth-child(1) {
-    background-color: $blue;
+    background-color: $light-green;
   }
   &:nth-child(2) {
-    background-color: $green;
+    background-color: $dark-grey;
   }
   &:nth-child(3) {
-    background-color: $main;
+    background-color: $green;
   }
   &:nth-child(4) {
-    background-color: $yellow;
+    background-color: $light-grey;
   }
   &:nth-child(5) {
-    background-color: $creme;
+    background-color: $white;
   }
   &:nth-child(6) {
-    background-color: $harder_blue;
+    background-color: $light-green;
   }
   &:nth-child(7) {
-    background-color: $harder_green;
+    background-color: $dark-grey;
   }
   &:nth-child(8) {
-    background-color: $harder_main;
+    background-color: $green;
   }
   &:nth-child(9) {
-    background-color: $harder_yellow;
+    background-color: $light-grey;
   }
   &:nth-child(10) {
-    background-color: $harder_creme;
+    background-color: $white;
   }
 }
 
+#dress {
+  background-image: url('/images/background/tree_bark.png');
+  background-position: 50% 0;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  @include box-shadow(inset 0 0 50px -15px $black);
+}
 
 #address, #address-button {
   padding: 0;
@@ -281,18 +304,21 @@ section {
   border-radius: 5px;
   vertical-align: middle;
   @include appearance(none);
+  @include box-shadow(0 0 4px $dark-grey);
 }
 #address {
   padding-left: 10px;
   width: 500px;
+  background-color: $white;
+  background-color: $transparent_white;
 }
 #address-button {
   width: 200px;
-  background-color: rgb(192, 192, 192);
   color: $white;
+  background-color: $green;
 
   &:hover {
-    background-color: $harder_green;
+    background-color: $light-grey;
   }
 }
 
@@ -339,7 +365,7 @@ section {
   }
   .twelve, .one, .two, .three, .four, .five, .six {
     background-color: $black;
-    color: $green;
+    color: $dark-grey;
     opacity: 0;
     @include transition(opacity .3s ease);
     position: absolute;
@@ -389,24 +415,32 @@ section {
 
 header.main {
   width: 100%;
+
+  max-width: $max_width;
+  margin: auto;
+
   height: 500px;
-  background: url(/images/its_a_wedding.jpg);
+  @include image-2x('/images/background/two-rings.jpg', '/images/background/two-rings_2x.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 1200px auto;
-  background-position: center top;
-  @include font-size(34);
-  text-align: center;
+  background-position: center -200px;
   position: relative;
 
-  h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 60px;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    margin-left: -270px;
+  div {
+    float: left;
+    text-align: center;
+    @include font-size(44);
+
+    span {
+      display: block;
+    }
+  }
+  container {
+    max-width: 800px;
+  }
+  article {
+    height: 500px;
   }
 }
 
@@ -417,13 +451,15 @@ footer.main {
   right: 0;
   width: 100%;
   height: 300px;
-  background-color: $creme;
+  background-color: $white;
   z-index: -1;
   text-align: center;
+
+  max-width: $max_width;
+  margin: auto;
 }
 .rsvp {
   font-size: 50px;
-  max-width: 900px;
   margin: auto;
   margin-top: 70px;
 }
