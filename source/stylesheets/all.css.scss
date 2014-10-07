@@ -5,78 +5,12 @@
 @import "mixins";
 
 $black: #555;
-$white: rgb(254, 252, 241);
-$transparent_white: rgba(254, 252, 241, .8);
-
-
-$green: #758A48;
-$light-green: #C9D787;
-$light-grey: #C4C4C4;
+$white: rgb(252, 252, 252);
+$transparent_white: rgba(252, 252, 252, .8);
+$light-grey: #EEEEEE;
 $dark-grey: #999999;
 
-
 $max_width: 1200px;
-
-
-nav {
-  position: fixed;
-  top: -30px;
-  left: 0;
-  right: 0;
-  height: 40px;
-  z-index: 30;
-  @include transition(top .5s ease);
-  cursor: pointer;
-
-  span {
-    width: 10%;
-    line-height: 40px;
-    display: block;
-    float: left;
-    // text-align: center;
-    @include font-size(18);
-    @include transition(line-height .2s ease);
-
-    &:hover {
-      line-height: 50px;
-    }
-    &:nth-child(1) {
-      background-color: $light-green;
-    }
-    &:nth-child(2) {
-      background-color: $dark-grey;
-    }
-    &:nth-child(3) {
-      background-color: $green;
-    }
-    &:nth-child(4) {
-      background-color: $light-grey;
-    }
-    &:nth-child(5) {
-      background-color: $white;
-    }
-    &:nth-child(6) {
-      background-color: $light-green;
-    }
-    &:nth-child(7) {
-      background-color: $dark-grey;
-    }
-    &:nth-child(8) {
-      background-color: $green;
-    }
-    &:nth-child(9) {
-      background-color: $light-grey;
-    }
-    &:nth-child(10) {
-      background-color: $white;
-    }
-  }
-
-  &:hover {
-    top: 0px;
-  }
-}
-
 
 html {
   font-size: 62.5%;
@@ -98,10 +32,25 @@ body {
   color: $black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-width: 800px;
+
+  #content {
+    min-width: 800px;
+  }
 }
 
 * {
   outline: none;
+  margin: 0;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+
+  &:hover {
+    color: #222;
+  }
 }
 
 h1 {
@@ -118,28 +67,23 @@ h2 {
   width: 100%;
   max-width: $max_width;
   margin: auto;
-  margin-bottom: 300px;
   @include box-shadow(0 0 10px $dark-grey);
 
   img {
-    height: 100%;
-    float: left;
+    float: right;
   }
 }
 
 container {
-  overflow: hidden;
+  overflow: visible;
   max-width: 720px;
   margin: auto;
-  position: absolute;
-  left: 0;
-  right: 0;
-  // top: 50%;
-  // @include transform(translateY(-50%));
+  display: block;
 }
 calendar {
   display: block;
   overflow: hidden;
+  margin-top: 50px;
 
   td {
     border: 1px solid;
@@ -154,31 +98,14 @@ article {
   margin: auto;
   max-width: 1040px;
   width: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 600px;
-  // text-align: center;
-  padding: 50px 10px;
+  padding: 50px 10px 80px;
   @include box-sizing(border-box);
-}
-
-.one-liner {
-  line-height: 150px;
-}
-.two-lines {
-  line-height: 75px;
-}
-.three-lines {
-  line-height: 50px;
-  padding: 15px 0;
 }
 
 section {
   overflow: hidden;
   border-bottom: 30px;
   position: relative;
-  min-height: 600px;
   @include font-size(30);
 
   header {
@@ -194,19 +121,17 @@ section {
   }
 
 
+  &#about {
+    article {
+      padding-bottom: 50px;
+    }
+  }
+
+
   &#when {
 
     article {
       text-align: left;
-    }
-
-    &.hover {
-      #minute {
-        @include transform(rotate(2160deg));
-      }
-      #hour {
-        @include transform(rotate(180deg));
-      }
     }
 
     container {
@@ -216,6 +141,11 @@ section {
 
   &#directions {
     @include image-2x('/images/background/map.png', '/images/background/map_2x.png');
+    height: 600px;
+
+    article {
+      margin-top: 100px;
+    }
 
     header {
       background-color: $white;
@@ -234,25 +164,28 @@ section {
 
   &#where {
     @include image-2x("/images/background/saratoga_springs.jpg", "/images/background/saratoga_springs_2x.jpg");
+    height: 600px;
+
+    article {
+      margin-top: 100px;
+    }
 
     header, div {
       border-radius: 5px;
       background-color: $white;
-      background-color: $transparent-white;
       text-align: center;
-      opacity: 1;
+      opacity: .5;
       @include transition(opacity .2s ease);
+    }
+    div {
+      padding: 30px;
     }
 
     &:hover {
       header, div {
-        opacity: 0;
+        opacity: .9;
       }
     }
-  }
-
-  &#disclaimer {
-    text-align: center;
   }
 
   &#images {
@@ -268,39 +201,31 @@ section {
     }
   }
 
-  &:nth-child(1) {
-    background-color: $light-green;
-  }
-  &:nth-child(2) {
-    background-color: $dark-grey;
-  }
-  &:nth-child(3) {
-    background-color: $green;
-  }
-  &:nth-child(4) {
-    background-color: $light-grey;
-  }
-  &:nth-child(5) {
-    background-color: $white;
-  }
-  &:nth-child(6) {
-    background-color: $light-green;
-  }
-  &:nth-child(7) {
-    background-color: $dark-grey;
-  }
-  &:nth-child(8) {
-    background-color: $green;
-  }
-  &:nth-child(9) {
-    background-color: $light-grey;
-  }
-  &:nth-child(10) {
-    background-color: $white;
-  }
-}
 
-#dress {
+  &#about {
+    background-color: #D4EDF4;
+  }
+  &#meeting {
+    background-color: #E2F2D5;
+  }
+  &#proposal {
+    background-color: #F9FBBA;
+  }
+  &#when {
+    background-color: #D4EDF4;
+  }
+  &#theme {
+    background-color: #E2F2D5;
+  }
+  &#dress {
+    background-color: #F9FBBA;
+  }
+  &#disclaimer {
+    background-color: #D4EDF4;
+  }
+  &#registries {
+    background-color: #E2F2D5;
+  }
 }
 
 #address, #address-button {
@@ -322,8 +247,8 @@ section {
 #address-button {
   width: 200px;
   color: $white;
-  background-color: $green;
-  @include transition(background-color .2s ease);
+  background-color: #9FE58A;
+  @include transition(background-color .5s ease);
 
   &:hover {
     background-color: $light-grey;
@@ -356,36 +281,78 @@ header.main {
     }
   }
   container {
-    max-width: 800px;
+    max-width: 720px;
+    margin-top: 30px;
   }
   article {
     height: 500px;
   }
 }
 
-footer.main {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  height: 300px;
-  background-color: $white;
-  z-index: -1;
-  text-align: center;
+.alison {
+  margin-bottom: 1em;
+}
+.brian {
 
-  max-width: $max_width;
-  margin: auto;
+}
+
+#registries {
+  h2 {
+    text-align: center;
+  }
+}
+
+.amazon {
+  background-image: url('/images/amazon_logo.jpg');
+  margin-bottom: 20px;
+}
+.target {
+  background-image: url('/images/target_logo.gif');
+  margin-bottom: 20px;
+}
+.bed-bath {
+  background-image: url('/images/bed_bath_logo.jpg');
+}
+.amazon, .target, .bed-bath {
+  width: 50%;
+  height: 100px;
+  display: block;
+  background-color: white;
+  border-radius: 4px;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: 20px center;
+  padding: 10px;
+  margin: 0 auto 20px;
+  @include transition(box-shadow .2s ease,
+                      -moz-box-shadow .2s ease,
+                      -webkit-box-shadow .2s ease);
+  @include box-shadow(0 0 0px $dark-grey);
+
+  &:hover {
+    @include box-shadow(0 0 20px $dark-grey);
+  }
+}
+#the-ring {
+  width: 300px;
+  margin-left: 1em;
+  margin-bottom: 1em;
+  border-radius: 4px;
+}
+
+#footer {
+  width: 100%;
+
+  background-color: $light-grey;
+
+  text-align: center;
 }
 .rsvp {
-  font-size: 50px;
+  @include font-size(38);
   margin: auto;
-  margin-top: 70px;
+  margin-top: 40px;
 }
 .copyright {
   @include font-size(14);
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  text-align: center;
 }
