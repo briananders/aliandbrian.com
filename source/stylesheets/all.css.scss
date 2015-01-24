@@ -32,10 +32,10 @@ body {
   color: $black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-width: 800px;
+  min-width: 1000px;
 
   #content {
-    min-width: 800px;
+    min-width: 1000px;
   }
 }
 
@@ -60,7 +60,10 @@ h1 {
 }
 h2 {
   margin: 0;
-
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.5em;
 }
 
 #content {
@@ -70,15 +73,25 @@ h2 {
   @include box-shadow(0 0 10px $dark-grey);
 
   img {
-    float: right;
+    width: 100%;
+    border-radius: 3px;
   }
+
+  > * {
+    overflow: hidden;
+  }
+}
+
+p {
+  margin: 0 0 1em;
 }
 
 container {
   overflow: visible;
-  max-width: 720px;
+  max-width: 1040px;
   margin: auto;
   display: block;
+  padding: 0 40px;
 }
 calendar {
   display: block;
@@ -96,9 +109,10 @@ calendar {
 }
 article {
   margin: auto;
-  max-width: 1040px;
+  max-width: 1280px;
   width: 100%;
-  padding: 50px 10px 80px;
+  padding: 50px 0px;
+  overflow: hidden;
   @include box-sizing(border-box);
 }
 
@@ -106,7 +120,9 @@ section {
   overflow: hidden;
   border-bottom: 30px;
   position: relative;
-  @include font-size(30);
+  @include font-size(20);
+  min-height: 400px;
+  border-top: 5px solid white;
 
   header {
     line-height: 100px;
@@ -114,28 +130,29 @@ section {
     margin-bottom: 1em;
   }
 
-  &#where, &#when {
-    span {
+  &#slideshow {
+    height: 500px;
+
+    div {
       display: block;
-    }
-  }
+      float: left;
+      overflow: hidden;
+      height: 100%;
+      width: 5000px;
 
+      img {
+        height: 100%;
+        width: auto;
+        float: left;
+        position: relative;
+        @include transition(width 1s ease);
 
-  &#about {
-    article {
-      padding-bottom: 50px;
-    }
-  }
-
-
-  &#when {
-
-    article {
-      text-align: left;
-    }
-
-    container {
-      overflow: visible;
+        &.hide {
+          display: block;
+          width: 0 !important;
+          height: auto;
+        }
+      }
     }
   }
 
@@ -144,19 +161,20 @@ section {
     height: 600px;
     background-size: cover;
 
-    article {
-      margin-top: 100px;
-    }
-
     header {
       background-color: $white;
       background-color: $transparent_white;
-      border-radius: 5px;
+      border-radius: 3px;
       text-align: center;
+      margin: 0 auto 3em;
     }
 
     form {
-      width: 100%;
+      margin: auto;
+    }
+
+    form, header {
+      @include columns(8);
     }
   }
 
@@ -165,15 +183,10 @@ section {
 
   &#where {
     @include image-2x("/images/background/saratoga_springs.jpg", "/images/background/saratoga_springs_2x.jpg");
-    height: 600px;
-    background-size: cover;
-
-    article {
-      margin-top: 100px;
-    }
+    background-size: auto 430px;
 
     header, div {
-      border-radius: 5px;
+      border-radius: 3px;
       background-color: $white;
       text-align: center;
       opacity: .9;
@@ -183,20 +196,6 @@ section {
       padding: 30px;
     }
   }
-
-  &#images {
-    width: 100%;
-    overflow-x: scroll;
-    background-color: $light-grey;
-
-    .container {
-      width: 5000px;
-      height: 100%;
-      max-width: none;
-      padding: 0;
-    }
-  }
-
 
   &#about {
     background-color: #D4EDF4;
@@ -229,26 +228,30 @@ section {
   line-height: 50px;
   border: none;
   @include font-size(30);
-  border-radius: 5px;
+  border-radius: 3px;
   vertical-align: middle;
+  display: block;
+  float: left;
   @include appearance(none);
+  @include box-sizing(border-box);
   @include box-shadow(0 0 4px $dark-grey);
+  @include transition(box-shadow .2s ease);
+
+  &:hover, &:focus {
+    @include box-shadow(0 0 14px $dark-grey);
+  }
 }
 #address {
   padding-left: 10px;
-  width: 500px;
+  @include columns(8);
   background-color: $white;
   background-color: $transparent_white;
 }
 #address-button {
-  width: 200px;
+  @include columns(4);
   color: $white;
   background-color: #9FE58A;
-  @include transition(background-color .5s ease);
-
-  &:hover {
-    background-color: $light-grey;
-  }
+  margin-left: $gutter;
 }
 
 
@@ -259,29 +262,27 @@ header.main {
   max-width: $max_width;
   margin: auto;
 
-  height: 500px;
-  @include image-2x('/images/background/two-rings.jpg', '/images/background/two-rings_2x.jpg');
+  height: 600px;
+  @include image-2x('/images/us/DSC8382.jpg', '/images/us/DSC8382_2x.jpg');
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: 1200px auto;
-  background-position: center -200px;
+  background-size: auto 100%;
+  background-position: center center;
   position: relative;
+  font-weight: 500;
+
+  color: #D4EDF4;
 
   div {
     float: left;
     text-align: center;
-    @include font-size(44);
-
-    span {
-      display: block;
-    }
+    @include font-size(20);
   }
   container {
-    max-width: 720px;
+    max-width: 1040px;
     margin-top: 30px;
   }
-  article {
-    height: 500px;
+  h3 {
+    font-weight: 100;
   }
 }
 
@@ -302,53 +303,84 @@ header.main {
   background-image: url('/images/amazon_logo.jpg');
   margin-bottom: 20px;
 }
-.target {
-  background-image: url('/images/target_logo.gif');
-  margin-bottom: 20px;
-}
 .bed-bath {
   background-image: url('/images/bed_bath_logo.jpg');
 }
-.amazon, .target, .bed-bath {
-  width: 50%;
+.amazon, .bed-bath {
+  @include columns(6);
   height: 100px;
   display: block;
   background-color: white;
-  border-radius: 4px;
+  border-radius: 3px;
   background-size: 90%;
   background-repeat: no-repeat;
   background-position: 20px center;
   padding: 10px;
-  margin: 0 auto 20px;
+  float: left;
+  @include box-sizing(border-box);
   @include transition(box-shadow .2s ease,
                       -moz-box-shadow .2s ease,
                       -webkit-box-shadow .2s ease);
   @include box-shadow(0 0 0px $dark-grey);
 
   &:hover {
-    @include box-shadow(0 0 20px $dark-grey);
+    @include box-shadow(0 0 14px $dark-grey);
   }
 }
-#the-ring {
-  width: 300px;
-  margin-left: 1em;
-  margin-bottom: 1em;
-  border-radius: 4px;
+.bed-bath {
+  margin-left: $gutter;
 }
 
 #footer {
   width: 100%;
-
-  background-color: $light-grey;
-
-  text-align: center;
-}
-.rsvp {
   @include font-size(38);
-  margin: auto;
-  margin-top: 40px;
+  background-color: $light-grey;
+  text-align: center;
 }
 .copyright {
   @include font-size(14);
   text-align: center;
+  border-top: 5px solid white;
+  background-color: $light-grey;
+}
+.half {
+  @include columns(6);
+  float: left;
+
+  &.right {
+    margin-left: $gutter;
+  }
+  img {
+    width: 100%;
+  }
+}
+.fifty {
+  width: 50%;
+  float: left;
+  border-right: 3px solid white;
+  @include box-sizing(border-box);
+
+  &.right {
+    border-left: 2px solid white;
+    border-right: none;
+  }
+}
+.centered {
+  text-align: center;
+}
+.vertical-centered {
+  > * {
+    top: 50%;
+    position: absolute;
+    @include transform(translateY(-50%));
+    @include box-sizing(border-box);
+  }
+}
+.match-height {
+  overflow: hidden;
+
+  > * {
+    margin-bottom: -9999px;
+    padding-bottom: 9999px;
+  }
 }

@@ -61,4 +61,21 @@ if ( !Array.prototype.forEach ) {
   })($);
 
 
+  setInterval(function(){
+    var firstElement = $('#slideshow img:first');
+    firstElement.css('width', $('#slideshow img:first').width());
+    firstElement.css('height', 'auto');
+
+    setTimeout(function() {
+      firstElement.addClass('hide');
+    }, 0);
+
+    setTimeout(function() {
+      firstElement.appendTo('#slideshow div');
+      firstElement.removeClass('hide');
+    }, 1000);
+
+  }, 5000);
+
+
 })($);
