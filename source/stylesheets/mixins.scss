@@ -1,8 +1,8 @@
 @import "compass";
 
 $gutter:    percentage(20px/940px); // 20px at 960px wide container, accounting for a 1/2 gutter width padding on the left and right of the container
-$onecol:                6.3829787%; // 60px at 960px wide container
-$columnsBreakPoint:          600px; // set this to the minimum width you want the columns to take effect at
+$onecol:    percentage(60px/940px); // 60px at 960px wide container
+$columnsBreakPoint:          960px; // set this to the minimum width you want the columns to take effect at
 $containerMaxWidth:          1040px; // set this to the maximum width you want .container to have
 
 // MEDIA QUERY MIXINS
@@ -11,6 +11,11 @@ $containerMaxWidth:          1040px; // set this to the maximum width you want .
     @content;
   }
   html.nr {
+    @content;
+  }
+}
+@mixin mq-max($query) {
+  @media screen and (max-width: $query) {
     @content;
   }
 }

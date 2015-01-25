@@ -10,6 +10,10 @@ $transparent_white: rgba(252, 252, 252, .8);
 $light-grey: #EEEEEE;
 $dark-grey: #999999;
 
+$blue: #D4EDF4;
+$green: #E2F2D5;
+$yellow: #F9FBBA;
+
 $max_width: 1200px;
 
 html {
@@ -32,11 +36,6 @@ body {
   color: $black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  min-width: 1000px;
-
-  #content {
-    min-width: 1000px;
-  }
 }
 
 * {
@@ -58,10 +57,12 @@ h1 {
   @include font-size(32);
   z-index: 20;
 }
+
 h2 {
   margin: 0;
   font-size: 2em;
 }
+
 h3 {
   font-size: 1.5em;
 }
@@ -71,11 +72,6 @@ h3 {
   max-width: $max_width;
   margin: auto;
   @include box-shadow(0 0 10px $dark-grey);
-
-  img {
-    width: 100%;
-    border-radius: 3px;
-  }
 
   > * {
     overflow: hidden;
@@ -87,26 +83,13 @@ p {
 }
 
 container {
-  overflow: visible;
+  overflow: hidden;
   max-width: 1040px;
   margin: auto;
   display: block;
-  padding: 0 40px;
+  padding: 0 20px;
 }
-calendar {
-  display: block;
-  overflow: hidden;
-  margin-top: 50px;
 
-  td {
-    border: 1px solid;
-    text-align: center;
-    padding: 3px;
-  }
-  .the-date {
-    background: $white;
-  }
-}
 article {
   margin: auto;
   max-width: 1280px;
@@ -129,241 +112,21 @@ section {
     font-weight: 100;
     margin-bottom: 1em;
   }
-
-  &#slideshow {
-    height: 500px;
-
-    div {
-      display: block;
-      float: left;
-      overflow: hidden;
-      height: 100%;
-      width: 5000px;
-
-      img {
-        height: 100%;
-        width: auto;
-        float: left;
-        position: relative;
-        @include transition(width 1s ease);
-
-        &.hide {
-          display: block;
-          width: 0 !important;
-          height: auto;
-        }
-      }
-    }
-  }
-
-  &#directions {
-    @include image-2x('/images/background/map.png', '/images/background/map.png');
-    height: 600px;
-    background-size: cover;
-
-    header {
-      background-color: $white;
-      background-color: $transparent_white;
-      border-radius: 3px;
-      text-align: center;
-      margin: 0 auto 3em;
-    }
-
-    form {
-      margin: auto;
-    }
-
-    form, header {
-      @include columns(8);
-    }
-  }
-
-  &#theme {
-  }
-
-  &#where {
-    @include image-2x("/images/background/saratoga_springs.jpg", "/images/background/saratoga_springs_2x.jpg");
-    background-size: auto 430px;
-
-    header, div {
-      border-radius: 3px;
-      background-color: $white;
-      text-align: center;
-      opacity: .9;
-      @include transition(opacity .2s ease);
-    }
-    div {
-      padding: 30px;
-    }
-  }
-
-  &#about {
-    background-color: #D4EDF4;
-  }
-  &#meeting {
-    background-color: #E2F2D5;
-  }
-  &#proposal {
-    background-color: #F9FBBA;
-  }
-  &#when {
-    background-color: #D4EDF4;
-  }
-  &#theme {
-    background-color: #E2F2D5;
-  }
-  &#dress {
-    background-color: #F9FBBA;
-  }
-  &#disclaimer {
-    background-color: #D4EDF4;
-  }
-  &#registries {
-    background-color: #E2F2D5;
-  }
 }
 
-#address, #address-button {
-  padding: 0;
-  line-height: 50px;
-  border: none;
-  @include font-size(30);
-  border-radius: 3px;
-  vertical-align: middle;
-  display: block;
-  float: left;
-  @include appearance(none);
-  @include box-sizing(border-box);
-  @include box-shadow(0 0 4px $dark-grey);
-  @include transition(box-shadow .2s ease);
-
-  &:hover, &:focus {
-    @include box-shadow(0 0 14px $dark-grey);
-  }
-}
-#address {
-  padding-left: 10px;
-  @include columns(8);
-  background-color: $white;
-  background-color: $transparent_white;
-}
-#address-button {
-  @include columns(4);
-  color: $white;
-  background-color: #9FE58A;
-  margin-left: $gutter;
-}
-
-
-
-header.main {
-  width: 100%;
-
-  max-width: $max_width;
-  margin: auto;
-
-  height: 600px;
-  @include image-2x('/images/us/DSC8382.jpg', '/images/us/DSC8382_2x.jpg');
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  background-position: center center;
-  position: relative;
-  font-weight: 500;
-
-  color: #D4EDF4;
-
-  div {
-    float: left;
-    text-align: center;
-    @include font-size(20);
-  }
-  container {
-    max-width: 1040px;
-    margin-top: 30px;
-  }
-  h3 {
-    font-weight: 100;
-  }
-}
-
-.alison {
-  margin-bottom: 1em;
-}
-.brian {
-
-}
-
-#registries {
-  h2 {
-    text-align: center;
-  }
-}
-
-.amazon {
-  background-image: url('/images/amazon_logo.jpg');
-  margin-bottom: 20px;
-}
-.bed-bath {
-  background-image: url('/images/bed_bath_logo.jpg');
-}
-.amazon, .bed-bath {
-  @include columns(6);
-  height: 100px;
-  display: block;
-  background-color: white;
-  border-radius: 3px;
-  background-size: 90%;
-  background-repeat: no-repeat;
-  background-position: 20px center;
-  padding: 10px;
-  float: left;
-  @include box-sizing(border-box);
-  @include transition(box-shadow .2s ease,
-                      -moz-box-shadow .2s ease,
-                      -webkit-box-shadow .2s ease);
-  @include box-shadow(0 0 0px $dark-grey);
-
-  &:hover {
-    @include box-shadow(0 0 14px $dark-grey);
-  }
-}
-.bed-bath {
-  margin-left: $gutter;
-}
-
-#footer {
-  width: 100%;
-  @include font-size(38);
-  background-color: $light-grey;
-  text-align: center;
-}
-.copyright {
-  @include font-size(14);
-  text-align: center;
-  border-top: 5px solid white;
-  background-color: $light-grey;
-}
 .half {
   @include columns(6);
   float: left;
+  min-height: 1px;
 
   &.right {
     margin-left: $gutter;
   }
-  img {
-    width: 100%;
-  }
 }
 .fifty {
-  width: 50%;
+  width: 100%;
   float: left;
-  border-right: 3px solid white;
   @include box-sizing(border-box);
-
-  &.right {
-    border-left: 2px solid white;
-    border-right: none;
-  }
 }
 .centered {
   text-align: center;
@@ -382,5 +145,419 @@ header.main {
   > * {
     margin-bottom: -9999px;
     padding-bottom: 9999px;
+  }
+}
+.desktop {
+  display: none;
+}
+
+@include mq(600px) {
+  .desktop {
+    display: block;
+  }
+}
+
+@include mq(700px) {
+  container {
+    padding: 0 80px;
+  }
+}
+
+@include mq(960px) {
+  .fifty {
+    width: 50%;
+    float: left;
+    border-right: 3px solid white;
+    @include box-sizing(border-box);
+
+    &.right {
+      border-left: 2px solid white;
+      border-right: none;
+    }
+  }
+}
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////PAGE SPECIFIC///////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+#about {
+  background-color: $blue;
+}
+
+#meeting {
+  background-color: $green;
+}
+
+#proposal {
+  background-color: $yellow;
+}
+
+#when {
+  background-color: $blue;
+}
+
+#theme {
+  background-color: $green;
+}
+
+#dress {
+  background-color: $yellow;
+}
+
+#disclaimer {
+  background-color: $blue;
+}
+
+#registries {
+  background-color: $green;
+}
+
+#header {
+  width: 100%;
+
+  max-width: $max_width;
+  margin: auto;
+
+  height: 600px;
+  @include image-2x('/images/us/DSC8382.jpg', '/images/us/DSC8382_2x.jpg');
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-position: center center;
+  position: relative;
+  font-weight: 500;
+  text-shadow: 0 0 10px $black;
+
+  color: $blue;
+
+  div {
+    float: left;
+    text-align: center;
+    @include font-size(20);
+  }
+  container {
+    margin-top: 30px;
+  }
+  h3 {
+    font-weight: 100;
+  }
+  .half {
+    @include columns(12);
+  }
+}
+
+#meeting {
+  .left-half {
+    @include columns(12);
+  }
+  .right-half {
+    display: none;
+  }
+}
+
+#proposal {
+  .left-half {
+    display: none;
+  }
+  .right-half {
+    @include columns(12);
+  }
+}
+
+#when {
+
+  calendar {
+    display: block;
+    overflow: hidden;
+  }
+  row {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  column {
+    border-radius: 20px;
+    width: percentage(1/7);
+    display: block;
+    float: left;
+    min-height: 1px;
+  }
+  .the-date {
+    background: $white;
+  }
+}
+
+#slideshow {
+  height: 500px;
+
+  div {
+    display: block;
+    float: left;
+    overflow: hidden;
+    height: 100%;
+    width: 5000px;
+
+    img {
+      height: 100%;
+      width: auto;
+      float: left;
+      position: relative;
+      @include transition(width 1s ease);
+
+      &.hide {
+        display: block;
+        width: 0 !important;
+        height: auto;
+      }
+    }
+  }
+}
+
+#directions {
+  display: none;
+
+  @include image-2x('/images/background/map.png', '/images/background/map.png');
+  height: 600px;
+  background-size: cover;
+
+  header {
+    background-color: $white;
+    background-color: $transparent_white;
+    border-radius: 3px;
+    text-align: center;
+    margin: 10px auto 2em;
+  }
+
+  form {
+    margin: auto;
+    padding: 10px;
+    overflow: hidden;
+  }
+
+  form, header {
+    @include columns(8);
+  }
+}
+
+#theme {
+}
+
+#where {
+  @include image-2x("/images/background/saratoga_springs.jpg", "/images/background/saratoga_springs_2x.jpg");
+  background-size: cover;
+
+  header, div {
+    color: $green;
+    border-radius: 3px;
+    text-align: center;
+    font-weight: 900;
+    @include text-shadow(0 0 20px black,
+                         0 0 20px black);
+  }
+  div {
+    padding: 30px;
+    @include text-shadow(0 0 20px black,
+                         0 0 20px black,
+                         0 0 20px black,
+                         0 0 20px black);
+  }
+  span {
+    display: block;
+  }
+}
+
+#address, #address-button {
+  padding: 0;
+  line-height: 50px;
+  height: 50px;
+  border: none;
+  @include font-size(30);
+  border-radius: 3px;
+  vertical-align: middle;
+  display: block;
+  float: left;
+  @include appearance(none);
+  @include box-sizing(border-box);
+  @include box-shadow(0 0 4px $dark-grey);
+  @include transition(box-shadow .2s ease);
+
+  &:hover, &:focus {
+    @include box-shadow(0 0 14px $dark-grey);
+  }
+}
+
+#address {
+  padding-left: 10px;
+  @include columns(8);
+  background-color: $white;
+  background-color: $transparent_white;
+}
+
+#address-button {
+  @include columns(4);
+  color: $black;
+  background-color: $green;
+  margin-left: $gutter;
+}
+
+#registries {
+  h2 {
+    text-align: center;
+  }
+}
+
+.amazon {
+  background-image: url('/images/amazon_logo.jpg');
+}
+.bed-bath {
+  background-image: url('/images/bed_bath_logo.jpg');
+}
+
+.amazon, .bed-bath {
+  @include columns(12);
+  height: 0;
+  display: block;
+  background-color: white;
+  border-radius: 3px;
+  background-size: auto 80%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding-top: percentage(1/3);
+  float: left;
+  margin-bottom: 20px;
+  @include box-sizing(border-box);
+  @include transition(box-shadow .2s ease,
+                      -moz-box-shadow .2s ease,
+                      -webkit-box-shadow .2s ease);
+  @include box-shadow(0 0 0px $dark-grey);
+
+  &:hover {
+    @include box-shadow(0 0 14px $dark-grey);
+  }
+}
+
+#footer {
+  width: 100%;
+  @include font-size(38);
+  background-color: $light-grey;
+  text-align: center;
+
+  br {
+    display: none;
+  }
+}
+
+#copyright {
+  @include font-size(14);
+  text-align: center;
+  border-top: 5px solid white;
+  background-color: $light-grey;
+  padding: 1em;
+}
+
+
+
+@include mq(400px) {
+  .bed-bath, .amazon {
+    padding-top: percentage(1/5);
+  }
+}
+
+@include mq-max(480px) {
+  #when {
+    .half {
+      @include columns(12);
+      text-align: center;
+    }
+    calendar {
+      display: none;
+    }
+  }
+}
+
+@include mq(600px) {
+  #header {
+    .half {
+      @include columns(6);
+    }
+  }
+
+  .amazon, .bed-bath {
+    @include columns(6);
+    background-size: 90%;
+  }
+
+  .bed-bath {
+    margin-left: $gutter;
+  }
+}
+
+@include mq(700px) {
+  #directions {
+    display: block;
+  }
+}
+
+@include mq(915px) {
+  #footer {
+    br {
+      display: inline;
+    }
+  }
+}
+
+@include mq(960px) {
+  #meeting {
+    .left-half {
+      width: 50%;
+    }
+    .right-half {
+      position: absolute;
+      right: 0;
+      width: 50%;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
+      display: block;
+    }
+    img {
+      height: 100%;
+    }
+  }
+
+  #proposal {
+    .left-half {
+      position: absolute;
+      left: 0;
+      width: 50%;
+      top: 0;
+      bottom: 0;
+      overflow: hidden;
+      display: block;
+    }
+    .right-half {
+      width: 50%;
+      float: right;
+    }
+    img {
+      height: 100%;
+      right: -10%;
+      position: absolute;
+    }
   }
 }

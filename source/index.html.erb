@@ -4,7 +4,7 @@ title: Ali And Brian
 
 <div id="content">
 
-  <header class="main">
+  <header id="header">
     <article>
       <container>
         <%= partial "partials/header" %>
@@ -12,53 +12,16 @@ title: Ali And Brian
     </article>
   </header>
 
-  <%
-  # <section id="about">
-  #   <article>
-  #     <container>
-  #       <header>
-  #         <h2>About us</h2>
-  #       </header>
-  #       <div class="alison">
-  #         <h3>Alison</h3>
-  #         <p>
-  #           Ali is a super fun girl to hang out with. She may be a little shy at first, but once she opens up, she's a ton of fun. She loves reading. If it weren't for laws against it, she would probably be marrying books instead of me.
-
-  #           She is imaginative and creative. She is <a href="http://www.alisonthomasart.com">a great artist</a>. Since Ali is so smart, she is very fun to talk to.
-
-  #           She likes the outdoors.
-
-  #         </p>
-  #       </div>
-  #       <div class="brian">
-  #         <h3>Brian</h3>
-  #         <p>
-  #           Scoundrel.
-  #         </p>
-  #       </div>
-  #     </container>
-  #   </article>
-  # </section>
-  %>
-
   <section id="meeting">
-    <article>
-      <container>
-        <%= partial "partials/meeting" %>
-      </container>
-    </article>
+    <%= partial "partials/meeting" %>
   </section>
 
   <section id="proposal">
-    <article>
-      <container>
-        <%= partial "partials/proposal" %>
-      </container>
-    </article>
+    <%= partial "partials/proposal" %>
   </section>
 
-  <div class="match-height">
-    <section id="when" class="fifty">
+  <div>
+    <section id="when" class="fifty square vertical-centered">
       <article>
         <container>
           <%= partial "partials/when" %>
@@ -66,7 +29,7 @@ title: Ali And Brian
       </article>
     </section>
 
-    <section id="where" class="fifty right">
+    <section id="where" class="fifty right square vertical-centered">
       <article>
         <container>
           <%= partial "partials/where"%>
@@ -126,10 +89,10 @@ title: Ali And Brian
   <section id="footer" class="vertical-centered centered">
     <article class="rsvp">
       <container>
-        The invitations you will receive in the mail<br>will give you instruction on how to RSVP.
+        The invitations you will receive in the mail <br>will give you instruction on how to RSVP.
       </container>
     </article>
   </section>
 
-  <div class="copyright">&copy; 2014 - Brian Anders</div>
+  <div id="copyright">&copy; 2014 - Brian Anders</div>
 </div>
