@@ -1,0 +1,14 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.10.1//EN
+N:;;;;
+FN:Saratoga Springs Picnic & Campgrounds
+ORG:Saratoga Springs Picnic & Campgrounds;
+item1.TEL;type=pref:(408)867-9999
+item1.X-ABLabel:Primary Phone
+item2.ADR;type=pref:;;22801 Big Basin Way;Saratoga;CA;95070;
+item2.X-ABLabel:Address
+X-ABShowAs:COMPANY
+UID:d2d433ba-7cb8-460f-8d1f-37410d5dcc40
+X-ABUID:D2D433BA-7CB8-460F-8D1F-37410D5DCC40:ABPerson
+END:VCARD

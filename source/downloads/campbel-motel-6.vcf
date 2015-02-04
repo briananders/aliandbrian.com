@@ -1,0 +1,15 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:-//Apple Inc.//Mac OS X 10.10.1//EN
+N:;;;;
+FN:Campbel Motel 6
+ORG:Campbel Motel 6;
+item1.TEL;type=pref:(408)371-8870
+item1.X-ABLabel:Primary Phone
+TEL;type=WORK;type=FAX:(408)879-0236
+item2.ADR;type=pref:;;1240 Camden Ave;Campbell;CA;95008;
+item2.X-ABLabel:Address
+X-ABShowAs:COMPANY
+UID:2d2f53ee-62f9-4df8-a7f4-249b284003f5
+X-ABUID:2D2F53EE-62F9-4DF8-A7F4-249B284003F5:ABPerson
+END:VCARD

@@ -68,7 +68,7 @@ configure :build do
   activate :minify_javascript
 
   # Enable Asset Hashing
-  activate :asset_hash
+  # activate :asset_hash
 
   # Use relative URLs
   # activate :relative_assets

@@ -37,7 +37,8 @@ if ( !Array.prototype.forEach ) {
       }
     });
 
-    var submitAddress = function() {
+    var submitAddress = function(e) {
+      e.preventDefault();
       var address = $("#address").val().split(' ').join('+');
       var url = "https://www.google.com/maps/dir/" + address + "/Saratoga+Springs+Picnic+%26+Campgrounds,+22801+Big+Basin+Way,+Saratoga,+CA+95070";
       window.open(url, '_blank');
@@ -48,15 +49,14 @@ if ( !Array.prototype.forEach ) {
   })($);
 
 
-  //
+  //add title attribute
   (function($){
-    var windowHeight = $(window).height();
+    var links = $('a').filter(function(){
+      return !$(this).attr('title') || $(this).attr('title') === "";
+    });
 
-    $('span[data-src]').click(function(){
-
-      $('html, body').animate({
-        scrollTop: $($(this).data('src')).offset().top - ((windowHeight - 600)/2)
-      }, 1000);
+    links.each(function() {
+      $(this).attr('title', $(this).text());
     });
   })($);
 

@@ -1,7 +1,3 @@
----
-title: Ali And Brian
----
-
 <div id="content">
 
   <header id="header">
@@ -20,7 +16,8 @@ title: Ali And Brian
     <%= partial "partials/proposal" %>
   </section>
 
-  <div>
+  <div itemscope itemtype="http://schema.org/Event">
+    <meta itemprop="name" content="Alison Thomas and Brian Anders wedding">
     <section id="when" class="fifty square vertical-centered">
       <article>
         <container>
@@ -31,7 +28,7 @@ title: Ali And Brian
 
     <section id="where" class="fifty right square vertical-centered">
       <article>
-        <container>
+        <container itemprop="location" itemscope itemtype="http://schema.org/Place">
           <%= partial "partials/where"%>
         </container>
       </article>
@@ -60,12 +57,16 @@ title: Ali And Brian
     </section>
   </div>
 
-  <section id="directions" class="centered vertical-centered">
+  <section id="hotel" class="centered">
     <article>
       <container>
-        <%= partial "partials/directions"%>
+        <%= partial "partials/hotel"%>
       </container>
     </article>
+  </section>
+
+  <section id="directions">
+    <%= partial "partials/directions"%>
   </section>
 
   <div>
@@ -89,7 +90,7 @@ title: Ali And Brian
   <section id="footer" class="vertical-centered centered">
     <article class="rsvp">
       <container>
-        The invitations you will receive in the mail <br>will give you instruction on how to RSVP.
+        The invitations you receive in the mail <br>will give you instruction on how to RSVP.
       </container>
     </article>
   </section>
