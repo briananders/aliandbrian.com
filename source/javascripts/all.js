@@ -56,7 +56,7 @@ if ( !Array.prototype.forEach ) {
     });
 
     links.each(function() {
-      $(this).attr('title', $(this).text());
+      $(this).attr('title', $(this).text().trim());
     });
   })($);
 
