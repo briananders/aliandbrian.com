@@ -427,7 +427,7 @@ section {
     @include columns(12);
     padding: 20px 0;
   }
-  a {
+  a.add-to-contacts {
     @include font-size(14);
   }
 }
